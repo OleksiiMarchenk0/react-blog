@@ -22,7 +22,6 @@ export const fetchPosts = () => {
     api
       .get("posts")
       .then((response) => {
-        console.log(response);
         dispatch(fetchSucceded(response));
       })
       .catch((error) => {

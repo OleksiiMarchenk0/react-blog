@@ -1,36 +1,29 @@
-import React from "react";
-import { connect } from "react-redux";
+import { useEffect } from "react";
 import { fetchPosts } from "../redux";
 import Blogpost from "../components/Blogpost";
+import { useSelector, useDispatch } from "react-redux";
 
-class Blogposts extends React.Component {
-  componentDidMount() {
-    this.props.fetchPosts();
-  }
+function Blogposts() {
+  const posts = useSelector((state) => state.posts.posts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
 
-  render() {
-    const { posts } = this.props;
-    let postToRender;
-    if(posts) {
-      postToRender = posts.map((post) => {
-        return (
-          <li key={post.id}>
-            <Blogpost post={post} />
-          </li>
-        );
-      });
-    }
+  if(posts) {
     return (
-      <div>
-        <ul> {postToRender}</ul>
-      </div>
+      <ul>
+        {posts.map((post) => {
+          return (
+            <li key={post.id}>
+              <Blogpost post={post} />{" "}
+            </li>
+          );
+        })}
+        {" "}
+      </ul>
     );
   }
 }
-const mapStateToProps = (state) => ({
-  posts: state.posts.posts,
-});
-const mapDispatchToProps = (dispatch) => ({
-  fetchPosts: () => dispatch(fetchPosts()),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Blogposts);
+
+export default Blogposts;
