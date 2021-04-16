@@ -1,7 +1,0 @@
-//Zadanie:Zbuduj blog na którym można dodawać wpisy, edytować je i usuwać. Każdy wpis można komentować. Można używać zewnętrznych bibliotek, aczkolwiek dodatkowo punktowane jest autorskie podejście. Zwróć uwagę na wszelkie aspekty projektu (np stylowanie). Dodatkowo punktowane jest pokrycie kodu testami jednostkowymi.
-// - Na stronie można dodawać wpisy.
-// - Wpisy można edytować
-// - Wpisy można usuwać
-// - Wpisy można komentować (coś a’la komentarze na YouTube)
-// - Podstawowe stylowanie
-// - (*) Testy

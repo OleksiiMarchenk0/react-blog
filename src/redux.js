@@ -1,8 +1,11 @@
-import api from "../api";
+
+import api from "./api";
 
 const FETCH_POSTS_REQUESTED = "posts/FETCH_POSTS_REQUESTED";
 const FETCH_POSTS_SUCCEDED = "posts/FETCH_POSTS_SUCCEDED";
 const FETCH_POSTS_FAILED = "posts/FETCH_POSTS_FAILED";
+const ADD_POST = "post/ADD_POST";
+const DELETE_POST = "post/DELETE_POST";
 
 const INITIAL_STATE = {
   posts: [],
@@ -16,6 +19,9 @@ const fetchSucceded = (data) => ({
   type: FETCH_POSTS_SUCCEDED,
   payload: data,
 });
+const addPost = (data) => ({ type: ADD_POST, payload: data });
+
+
 export const fetchPosts = () => {
   return function(dispatch) {
     dispatch(fetchRequested());
@@ -26,6 +32,21 @@ export const fetchPosts = () => {
       })
       .catch((error) => {
         dispatch(fetchFailed(error));
+      });
+  };
+};
+
+export const setPost = (postValue) => {
+  return function(dispatch) {
+    api
+      .post("posts", postValue)
+      .then(() => {
+        console.log(postValue);
+        dispatch(addPost(postValue));
+      })
+      .catch((error) => {
+        // dispatch(fetchFailed(error));
+        console.log(error);
       });
   };
 };
@@ -52,7 +73,20 @@ export default (state = INITIAL_STATE, action) => {
         isLoading: false,
         isError: true,
       };
-    default:
+    case ADD_POST:
+      console.log(action);
+      return {
+        ...state,
+        posts:[
+          ...state.posts,
+          {
+            text:action.payload,
+          }
+        ]
+      };
+      case DELETE_POST:
+        return {};
+      default:
       return state;
   }
 };
