@@ -1,4 +1,3 @@
-
 import api from "./api";
 
 const FETCH_POSTS_REQUESTED = "posts/FETCH_POSTS_REQUESTED";
@@ -21,7 +20,6 @@ const fetchSucceded = (data) => ({
 });
 const addPost = (data) => ({ type: ADD_POST, payload: data });
 
-
 export const fetchPosts = () => {
   return function(dispatch) {
     dispatch(fetchRequested());
@@ -41,7 +39,6 @@ export const setPost = (postValue) => {
     api
       .post("posts", postValue)
       .then(() => {
-        console.log(postValue);
         dispatch(addPost(postValue));
       })
       .catch((error) => {
@@ -50,7 +47,6 @@ export const setPost = (postValue) => {
       });
   };
 };
-
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -74,19 +70,21 @@ export default (state = INITIAL_STATE, action) => {
         isError: true,
       };
     case ADD_POST:
-      console.log(action);
+      const id = Date.now();
+      action.id = id;
       return {
         ...state,
-        posts:[
+        posts: [
           ...state.posts,
           {
-            text:action.payload,
-          }
-        ]
+            text: action.payload,
+            id: action.id
+          },
+        ],
       };
-      case DELETE_POST:
-        return {};
-      default:
+    case DELETE_POST:
+      return {};
+    default:
       return state;
   }
 };

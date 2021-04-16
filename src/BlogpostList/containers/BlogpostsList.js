@@ -9,12 +9,17 @@ function Blogposts() {
 
   useEffect(() => {
     dispatch(fetchPosts());
-  }, [dispatch, posts]);
+  }, [ ]);
+
+  const handleRemovePost = (post) => {
+    console.log(post);
+  };
+
 
   const postsList = posts.map((post) => {
     return (
       <li key={post.id}>
-        <Blogpost post={post} />{" "}
+        <Blogpost post={post} handleRemovePost={handleRemovePost.bind(this)} />{" "}
       </li>
     );
   });

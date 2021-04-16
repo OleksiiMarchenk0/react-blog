@@ -9,9 +9,9 @@ function request(endpoint, method = "GET", data = null) {
     },
   };
   if(method === "POST" || method === "PATCH") {
-    const newPostData={
-      text:data,
-      id:Date.now()
+    const newPostData = {
+      text: data,
+      id: Date.now(),
     };
     config.body = JSON.stringify(newPostData);
   }
