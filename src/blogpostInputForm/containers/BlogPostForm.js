@@ -8,8 +8,10 @@ function BlogPostFormContainer() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const postValue = e.target.post.value;
-    dispatch(setPost(postValue));
-    e.target.post.value="";
+    if(postValue !== "") {
+      dispatch(setPost(postValue));
+      e.target.post.value = "";
+    }
   };
   return <BlogPostForm handleSubmit={handleSubmit} />;
 }

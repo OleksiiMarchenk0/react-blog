@@ -19,6 +19,9 @@ const fetchSucceded = (data) => ({
   payload: data,
 });
 const addPost = (data) => ({ type: ADD_POST, payload: data });
+const deletePost = (data) => ({ type: DELETE_POST, payload: data });
+
+
 
 export const fetchPosts = () => {
   return function(dispatch) {
@@ -35,20 +38,36 @@ export const fetchPosts = () => {
 };
 
 export const setPost = (postValue) => {
+  const data = {
+    text:postValue,
+    id:Date.now()
+  };
   return function(dispatch) {
     api
-      .post("posts", postValue)
+      .post("posts", data)
       .then(() => {
-        dispatch(addPost(postValue));
+        dispatch(addPost(data));
       })
       .catch((error) => {
-        // dispatch(fetchFailed(error));
-        console.log(error);
+        dispatch(fetchFailed(error));
       });
   };
 };
 
-export default (state = INITIAL_STATE, action) => {
+export const removePost = (id) => {
+  return function(dispatch) {
+    api
+      .delete("posts", id)
+      .then(() => {
+        dispatch(deletePost(id));
+      })
+      .catch((error) => {
+        dispatch(fetchFailed(error));
+      });
+  };
+};
+
+const redux = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_POSTS_REQUESTED:
       return {
@@ -70,21 +89,24 @@ export default (state = INITIAL_STATE, action) => {
         isError: true,
       };
     case ADD_POST:
-      const id = Date.now();
-      action.id = id;
       return {
         ...state,
         posts: [
           ...state.posts,
           {
-            text: action.payload,
-            id: action.id
+            text: action.payload.text,
+            id: action.payload.id,
           },
         ],
       };
     case DELETE_POST:
-      return {};
+      const posts = state.posts.filter((post) => post.id !== action.payload);
+      return {
+        ...state,
+        posts: posts,
+      };
     default:
       return state;
   }
 };
+export default redux;

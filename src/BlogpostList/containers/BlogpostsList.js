@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchPosts } from "../../redux";
+import { fetchPosts, removePost } from "../../redux";
 import { useSelector, useDispatch } from "react-redux";
 import Blogpost from "../components/Blogpost";
 
@@ -12,14 +12,13 @@ function Blogposts() {
   }, [ ]);
 
   const handleRemovePost = (post) => {
-    console.log(post);
+    console.log("id", post.id);
+    dispatch(removePost(post.id));
   };
-
-
   const postsList = posts.map((post) => {
     return (
       <li key={post.id}>
-        <Blogpost post={post} handleRemovePost={handleRemovePost.bind(this)} />{" "}
+        <Blogpost post={post} handleRemovePost={handleRemovePost} />{" "}
       </li>
     );
   });

@@ -9,12 +9,9 @@ function request(endpoint, method = "GET", data = null) {
     },
   };
   if(method === "POST" || method === "PATCH") {
-    const newPostData = {
-      text: data,
-      id: Date.now(),
-    };
-    config.body = JSON.stringify(newPostData);
+    config.body = JSON.stringify(data);
   }
+
   const url = `${API_URL}/${endpoint}`;
   return fetch(url, config).then((response) => {
     return response.json();
@@ -22,18 +19,16 @@ function request(endpoint, method = "GET", data = null) {
 }
 
 function get(endpoint) {
-  console.log("post");
   return request(endpoint);
 }
 function post(endpoint, data) {
-  console.log("post");
   return request(endpoint, "POST", data);
 }
 function patch(endpoint, data) {
   return request(endpoint, "PATCH", data);
 }
-function _delete(endpoint) {
-  return request(endpoint, "DELETE");
+function _delete(endpoint, id) {
+  return request(`${endpoint}/${id}`, "DELETE");
 }
 
 export default {
