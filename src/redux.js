@@ -21,9 +21,10 @@ const fetchSucceded = (data) => ({
 });
 const addPost = (data) => ({ type: ADD_POST, payload: data });
 const deletePost = (data) => ({ type: DELETE_POST, payload: data });
- const fetchPostSucceded= (data) => ({ type: FETCH_POST_SUCCEDED, payload: data });
-
-
+const fetchPostSucceded = (data) => ({
+  type: FETCH_POST_SUCCEDED,
+  payload: data,
+});
 
 export const fetchPosts = () => {
   return function(dispatch) {
@@ -40,8 +41,8 @@ export const fetchPosts = () => {
 };
 export const setPost = (postValue) => {
   const data = {
-    text:postValue,
-    id:Date.now()
+    text: postValue,
+    id: Date.now(),
   };
   return function(dispatch) {
     api
@@ -54,7 +55,6 @@ export const setPost = (postValue) => {
       });
   };
 };
-
 export const removePost = (id) => {
   return function(dispatch) {
     api
@@ -68,11 +68,13 @@ export const removePost = (id) => {
   };
 };
 export const fetchPost = (id) => {
+  console.log("it works", id);
   return function(dispatch) {
     api
       .get("posts", id)
-      .then(() => {
-        dispatch(fetchPostSucceded(id));
+      .then((response) => {
+      console.log(response);
+        dispatch(fetchPostSucceded(response));
       })
       .catch((error) => {
         dispatch(fetchFailed(error));
@@ -118,11 +120,12 @@ const redux = (state = INITIAL_STATE, action) => {
         posts: posts,
       };
     case FETCH_POST_SUCCEDED:
-        let post = state.posts.filter((post) => post.id === action.payload);
-        return {
-          ...state,
-          posts: post,
-        };
+      let post = action.payload;
+
+      return {
+        ...state,
+        posts: [post],
+      };
     default:
       return state;
   }
