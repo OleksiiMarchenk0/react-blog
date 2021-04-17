@@ -1,20 +1,37 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPost } from "../../redux";
- import PostPage from "../components/PostPage";
+import { fetchPost, removePost, fetchPosts } from "../../redux";
+import PostPage from "../components/PostPage";
 
- function BlogpostPage() {
+
+function BlogpostPage() {
+  const history = useHistory();
   const { id } = useParams();
   const posts = useSelector((state) => state.posts.posts);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchPost(id));
   }, []);
-  console.log(posts);
+
+  const handleRemovePost = (post) => {
+    dispatch(removePost(post.id));
+    history.push("/");
+    dispatch(fetchPosts());
+  };
+
+  const handleEditPost = (post) => {
+    console.log("id", post.id);
+    // dispatch(removePost(post.id));
+  };
   return (
     <>
-      <PostPage posts = {posts} />
+      <PostPage
+        posts={posts}
+        handleRemovePost={handleRemovePost}
+        handleEditPost={handleEditPost}
+      />
     </>
   );
 }

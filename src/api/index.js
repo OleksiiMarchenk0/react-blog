@@ -17,8 +17,7 @@ function request(endpoint, method = "GET", data = null) {
     return response.json();
   });
 }
-
-function get(endpoint, id="") {
+function get(endpoint, id = "") {
   console.log(id);
   return request(`${endpoint}/${id}`);
 }
@@ -32,9 +31,11 @@ function _delete(endpoint, id) {
   return request(`${endpoint}/${id}`, "DELETE");
 }
 
-export default {
+const methods = {
   get,
   post,
   patch,
   delete: _delete,
 };
+
+export default methods;

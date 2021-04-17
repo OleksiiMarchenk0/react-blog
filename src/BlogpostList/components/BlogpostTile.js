@@ -1,15 +1,9 @@
 import React from "react";
 
-export default function BlogpostTile({ post, handleRemovePost, handleEditPost }) {
+export default function BlogpostTile({ post }) {
   return (
     <>
       <span>{post.id},{post.text}</span>
-      <button onClick={() => handleRemovePost(post)}>
-        Delete this post
-      </button>
-      <button onClick={() => handleEditPost(post)}>
-        Edit this post
-      </button>
     </>
   );
 }

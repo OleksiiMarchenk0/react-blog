@@ -1,8 +1,8 @@
 import api from "./api";
 
+const ENDPOINT = "/posts";
 const FETCH_POSTS_REQUESTED = "posts/FETCH_POSTS_REQUESTED";
 const FETCH_POSTS_SUCCEDED = "posts/FETCH_POSTS_SUCCEDED";
-const FETCH_POSTS_FAILED = "posts/FETCH_POSTS_FAILED";
 const ADD_POST = "post/ADD_POST";
 const DELETE_POST = "post/DELETE_POST";
 const FETCH_POST_SUCCEDED = "post/FETCH_POST_SUCCEDED";
@@ -14,7 +14,6 @@ const INITIAL_STATE = {
 };
 
 const fetchRequested = () => ({ type: FETCH_POSTS_REQUESTED });
-const fetchFailed = () => ({ type: FETCH_POSTS_FAILED });
 const fetchSucceded = (data) => ({
   type: FETCH_POSTS_SUCCEDED,
   payload: data,
@@ -27,16 +26,10 @@ const fetchPostSucceded = (data) => ({
 });
 
 export const fetchPosts = () => {
-  return function(dispatch) {
+  return async function(dispatch) {
     dispatch(fetchRequested());
-    api
-      .get("posts")
-      .then((response) => {
-        dispatch(fetchSucceded(response));
-      })
-      .catch((error) => {
-        dispatch(fetchFailed(error));
-      });
+    const response = await api.get(ENDPOINT);
+    dispatch(fetchSucceded(response));
   };
 };
 export const setPost = (postValue) => {
@@ -44,41 +37,21 @@ export const setPost = (postValue) => {
     text: postValue,
     id: Date.now(),
   };
-  return function(dispatch) {
-    api
-      .post("posts", data)
-      .then(() => {
-        dispatch(addPost(data));
-      })
-      .catch((error) => {
-        dispatch(fetchFailed(error));
-      });
+  return async function(dispatch) {
+    const response = await api.post(ENDPOINT, data);
+    dispatch(addPost(response));
   };
 };
 export const removePost = (id) => {
-  return function(dispatch) {
-    api
-      .delete("posts", id)
-      .then(() => {
-        dispatch(deletePost(id));
-      })
-      .catch((error) => {
-        dispatch(fetchFailed(error));
-      });
+  return async function(dispatch) {
+    const response = await api.delete(ENDPOINT, id);
+    dispatch(deletePost(response));
   };
 };
 export const fetchPost = (id) => {
-  console.log("it works", id);
-  return function(dispatch) {
-    api
-      .get("posts", id)
-      .then((response) => {
-      console.log(response);
-        dispatch(fetchPostSucceded(response));
-      })
-      .catch((error) => {
-        dispatch(fetchFailed(error));
-      });
+  return async function(dispatch) {
+    const response = await api.get(ENDPOINT, id);
+    dispatch(fetchPostSucceded(response));
   };
 };
 const redux = (state = INITIAL_STATE, action) => {
@@ -95,12 +68,6 @@ const redux = (state = INITIAL_STATE, action) => {
         isLoading: false,
         isError: false,
         posts: action.payload,
-      };
-    case FETCH_POSTS_FAILED:
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
       };
     case ADD_POST:
       return {
