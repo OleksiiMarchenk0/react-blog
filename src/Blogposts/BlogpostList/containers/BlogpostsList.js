@@ -14,7 +14,7 @@ function Blogposts() {
   const postsList = posts.map((post) => {
     return (
       <>
-        <li key={post.id}>
+        <li class="BlogpostList__item" key={post.id}>
           <NavLink to={`/post/${post.id}`}>
             <BlogpostTile post={post} />{" "}
           </NavLink>
@@ -23,14 +23,12 @@ function Blogposts() {
     );
   });
   return (
-    <>
-      <h1>
-        <i>Blogs List</i>
-      </h1>
+    <div class="BlogpostListContainer">
+      <p>Blogs List</p>
       <ul className="BlogpostList">
         {posts && posts.length ? postsList : null}
       </ul>{" "}
-    </>
+    </div>
   );
 }
 
