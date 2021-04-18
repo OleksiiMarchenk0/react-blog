@@ -1,12 +1,16 @@
 {
   "posts": [
     {
-      "text": "aaafghj",
+      "text": "testowa",
       "id": 1618699237791
     },
     {
       "text": "oksana",
       "id": 1618736433558
+    },
+    {
+      "text": "ola",
+      "id": 1618738460065
     }
   ]
 }

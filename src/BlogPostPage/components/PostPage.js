@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Comments from "../../Comments/container/Comments";
 
 export default function PostPage({ post, handleRemovePost, handleEditPost }) {
   const { id, text } = post;
@@ -21,6 +22,8 @@ export default function PostPage({ post, handleRemovePost, handleEditPost }) {
           </button>{" "}
         </>
       ) : null}
+      <Comments/>
+
     </div>
   );
 }

@@ -3,14 +3,11 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import rootReducer from "./rootReducer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import BlogPostForm from "./blogpostInputForm/containers/BlogPostForm";
-import BlogpostsList from "./BlogpostList/containers/BlogpostsList";
+import Homepage from "./Homepage";
 import BlogpostPage from "./BlogPostPage/containers/BlogpostPage";
-
 import Layout from "./Layout";
 
-// import "./App.css";
+ import "./App.css";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = [thunk];
@@ -24,10 +21,9 @@ function App() {
     <BrowserRouter>
       <Provider store={store}>
         <Layout>
-          <BlogPostForm />
-          <BlogpostsList />
           <Switch>
-          <Route exact path={"/post/:id"} component={BlogpostPage} />
+            <Route exact path={"/"} component={Homepage} />
+            <Route exact path={"/post/:id"} component={BlogpostPage} />
           </Switch>
         </Layout>
       </Provider>
