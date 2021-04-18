@@ -10,7 +10,7 @@ import BlogpostPage from "./BlogPostPage/containers/BlogpostPage";
 
 import Layout from "./Layout";
 
-import "./App.css";
+// import "./App.css";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = [thunk];

@@ -24,8 +24,8 @@ function get(endpoint, id = "") {
 function post(endpoint, data) {
   return request(endpoint, "POST", data);
 }
-function patch(endpoint, data) {
-  return request(endpoint, "PATCH", data);
+function patch(endpoint, data, id) {
+  return request(`${endpoint}/${id}`, "PATCH", data);
 }
 function _delete(endpoint, id) {
   return request(`${endpoint}/${id}`, "DELETE");

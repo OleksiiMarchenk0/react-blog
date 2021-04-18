@@ -23,7 +23,14 @@ function Blogposts() {
     );
   });
   return (
-    <ul className="BlogpostList">{posts && posts.length ? postsList : null}</ul>
+    <>
+      <h1>
+        <i>Blogs List</i>
+      </h1>
+      <ul className="BlogpostList">
+        {posts && posts.length ? postsList : null}
+      </ul>{" "}
+    </>
   );
 }
 

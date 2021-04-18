@@ -1,13 +1,14 @@
 import api from "./api";
 
-const ENDPOINT = "/posts";
+const ENDPOINT = "posts";
 const FETCH_POSTS_REQUESTED = "posts/FETCH_POSTS_REQUESTED";
 const FETCH_POSTS_SUCCEDED = "posts/FETCH_POSTS_SUCCEDED";
 const ADD_POST = "post/ADD_POST";
 const DELETE_POST = "post/DELETE_POST";
 const FETCH_POST_SUCCEDED = "post/FETCH_POST_SUCCEDED";
-
+const EDIT_POST_SUCCEDED = "post/EDIT_POST_SUCCEDED";
 const INITIAL_STATE = {
+  post:{},
   posts: [],
   isLoading: false,
   isError: false,
@@ -22,6 +23,10 @@ const addPost = (data) => ({ type: ADD_POST, payload: data });
 const deletePost = (data) => ({ type: DELETE_POST, payload: data });
 const fetchPostSucceded = (data) => ({
   type: FETCH_POST_SUCCEDED,
+  payload: data,
+});
+const editPostSucceded = (data) => ({
+  type: EDIT_POST_SUCCEDED,
   payload: data,
 });
 
@@ -52,6 +57,15 @@ export const fetchPost = (id) => {
   return async function(dispatch) {
     const response = await api.get(ENDPOINT, id);
     dispatch(fetchPostSucceded(response));
+  };
+};
+export const editPost = (id, text) => {
+  const data = {
+    text
+  };
+  return async function(dispatch) {
+    const response = await api.patch(ENDPOINT, data, id);
+    dispatch(editPostSucceded(response));
   };
 };
 const redux = (state = INITIAL_STATE, action) => {
@@ -88,10 +102,10 @@ const redux = (state = INITIAL_STATE, action) => {
       };
     case FETCH_POST_SUCCEDED:
       let post = action.payload;
-
+      console.log(post);
       return {
         ...state,
-        posts: [post],
+        post: post,
       };
     default:
       return state;

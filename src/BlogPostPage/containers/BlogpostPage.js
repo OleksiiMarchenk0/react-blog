@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPost, removePost, fetchPosts } from "../../redux";
+import { fetchPost, removePost, fetchPosts, editPost } from "../../redux";
 import PostPage from "../components/PostPage";
-
 
 function BlogpostPage() {
   const history = useHistory();
   const { id } = useParams();
-  const posts = useSelector((state) => state.posts.posts);
+  const post = useSelector((state) => state.posts.post);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,14 +20,15 @@ function BlogpostPage() {
     dispatch(fetchPosts());
   };
 
-  const handleEditPost = (post) => {
-    console.log("id", post.id);
-    // dispatch(removePost(post.id));
+  const handleEditPost = (post, newBlogPostTextValue) => {
+    dispatch(editPost(post.id, newBlogPostTextValue));
+    history.push("/");
+    dispatch(fetchPosts());
   };
   return (
     <>
       <PostPage
-        posts={posts}
+        post={post}
         handleRemovePost={handleRemovePost}
         handleEditPost={handleEditPost}
       />

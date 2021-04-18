@@ -3,7 +3,7 @@ import React from "react";
 export default function BlogpostTile({ post }) {
   return (
     <>
-      <span>{post.id},{post.text}</span>
+      <h3>{post.text}</h3>
     </>
   );
 }
