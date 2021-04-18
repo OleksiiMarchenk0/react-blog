@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function Comment() {
+export default function Comment({ comment }) {
+ const { commentText } = comment;
     return (
         <div>
-          Component comment
+          {commentText}
         </div>
     );
 }

@@ -18,7 +18,6 @@ function request(endpoint, method = "GET", data = null) {
   });
 }
 function get(endpoint, id = "") {
-  console.log(id);
   return request(`${endpoint}/${id}`);
 }
 function post(endpoint, data) {

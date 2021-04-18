@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Comments from "../../Comments/container/Comments";
 
-export default function PostPage({ post, handleRemovePost, handleEditPost }) {
-  const { id, text } = post;
+export default function PostPage({ post, id, handleRemovePost, handleEditPost }) {
+  const { text } = post;
   const [isEdit, setIsEdit] = useState(false);
   const [val, newVal] = useState(text);
   const handleMessageChange = (event) => {
@@ -22,7 +22,7 @@ export default function PostPage({ post, handleRemovePost, handleEditPost }) {
           </button>{" "}
         </>
       ) : null}
-      <Comments/>
+      <Comments blogPostId = {id}/>
 
     </div>
   );

@@ -1,12 +1,14 @@
 import api from "./api";
 
 const ENDPOINT = "posts";
-const FETCH_POSTS_REQUESTED = "posts/FETCH_POSTS_REQUESTED";
-const FETCH_POSTS_SUCCEDED = "posts/FETCH_POSTS_SUCCEDED";
-const ADD_POST = "post/ADD_POST";
-const DELETE_POST = "post/DELETE_POST";
-const FETCH_POST_SUCCEDED = "post/FETCH_POST_SUCCEDED";
-const EDIT_POST_SUCCEDED = "post/EDIT_POST_SUCCEDED";
+const ENDPOINT_CUT = "post";
+
+const FETCH_POSTS_REQUESTED = `${ENDPOINT}/FETCH_POSTS_REQUESTED`;
+const FETCH_POSTS_SUCCEDED = `${ENDPOINT}/FETCH_POSTS_SUCCEDED`;
+const ADD_POST = `${ENDPOINT_CUT}/ADD_POST`;
+const DELETE_POST = `${ENDPOINT_CUT}/DELETE_POST`;
+const FETCH_POST_SUCCEDED = `${ENDPOINT_CUT}/FETCH_POST_SUCCEDED`;
+const EDIT_POST_SUCCEDED = `${ENDPOINT_CUT}/EDIT_POST_SUCCEDED`;
 const INITIAL_STATE = {
   post:{},
   posts: [],
@@ -102,7 +104,6 @@ const redux = (state = INITIAL_STATE, action) => {
       };
     case FETCH_POST_SUCCEDED:
       let post = action.payload;
-      console.log(post);
       return {
         ...state,
         post: post,

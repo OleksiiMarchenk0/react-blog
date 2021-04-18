@@ -28,6 +28,7 @@ function BlogpostPage() {
   return (
     <>
       <PostPage
+      id={id}
         post={post}
         handleRemovePost={handleRemovePost}
         handleEditPost={handleEditPost}

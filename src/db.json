@@ -1,16 +1,33 @@
 {
   "posts": [
     {
-      "text": "testowa",
-      "id": 1618699237791
-    },
-    {
-      "text": "oksana",
+      "text": "newoksana",
       "id": 1618736433558
     },
     {
-      "text": "ola",
-      "id": 1618738460065
+      "text": "olaa",
+      "id": 1618750814972
+    },
+    {
+      "text": "ggg",
+      "id": 1618750863752
+    }
+  ],
+  "comments": [
+    {
+      "commentId": 1,
+      "commentText": "Lorem",
+      "blogPostId": 1618736433558
+    },
+    {
+      "commentId": 3,
+      "commentText": "oop",
+      "blogPostId": 1618736433558
+    },
+    {
+      "commentId": 2,
+      "commentText": "Loremipsum",
+      "blogPostId": 1876543
     }
   ]
 }
