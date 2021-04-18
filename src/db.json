@@ -3,8 +3,22 @@
     {
       "text": "Eurovision 2021",
       "id": 1618770542474
+    },
+    {
+      "text": "New ideas for improving your codings skills",
+      "id": 1618780013039
     }
   ],
   "comments": [
+    {
+      "id": 1618777083820,
+      "commentText": "It's amazing!",
+      "blogPostId": 1618770542474
+    },
+    {
+      "id": 1618780031832,
+      "commentText": "Okay, I agree",
+      "blogPostId": 1618780013039
+    }
   ]
 }

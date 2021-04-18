@@ -11,7 +11,7 @@ export default function BlogPostEditInput(
       <form onSubmit={() => handleEditPost(post, val)} className="EditPost">
         <textarea
           onChange={handleMessageChange}
-          placeholder="nowa zawartość"
+          placeholder="new text"
           value={val}
           name="editable"
         ></textarea>
