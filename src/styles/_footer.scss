@@ -1,0 +1,16 @@
+footer {
+  div {
+    a,
+    span {
+      color: white;
+      font-weight: 700;
+      transition: $transition;
+    }
+    &:hover {
+      a,
+      span {
+        color: $FleryRose;
+      }
+    }
+  }
+}

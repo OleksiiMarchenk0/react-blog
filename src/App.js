@@ -25,7 +25,7 @@ function App() {
         <Navigation/>
           <Switch>
           <Route exact path={"/new"} component={BlogPostForm} />
-            <Route exact path={"/posts"} component={BlogpostsList} />
+            <Route exact path={["/posts", "/"]} component={BlogpostsList} />
             <Route exact path={"/post/:id"} component={BlogpostPage} />
           </Switch>
         </Layout>
