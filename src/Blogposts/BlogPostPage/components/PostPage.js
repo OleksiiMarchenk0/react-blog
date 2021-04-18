@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Comments from "../../../Comments/container/Comments";
-
-export default function PostPage({ post, id, handleRemovePost, handleEditPost }) {
+import BlogPostEditInput from "../../BlogPostEditInputForm/BlogPostEditInput";
+export default function PostPage({
+  post,
+  id,
+  handleRemovePost,
+  handleEditPost,
+}) {
   const { text } = post;
   const [isEdit, setIsEdit] = useState(false);
   const [val, newVal] = useState(text);
@@ -9,21 +14,26 @@ export default function PostPage({ post, id, handleRemovePost, handleEditPost })
     newVal(event.target.value);
   };
   return (
-    <div>
-      {id} - {text}
-      <button onClick={() => handleRemovePost(post)}>Delete this post</button>
-      <button onClick={() => setIsEdit(true)}>Edit this post</button>
-      {isEdit ? (
-        <>
-          {" "}
-          <textarea onChange={handleMessageChange} placeholder="nowa zawartość" value={val} name="editable"></textarea>
-          <button onClick={() => handleEditPost(post, val)}>
-            Save changes
-          </button>{" "}
-        </>
-      ) : null}
-      <Comments blogPostId = {id}/>
+    <div className="PostPage">
+      <div className="Post">
+        <p className="header">{text}</p>
+        <div className="PostPage__buttons">
+          <button onClick={() => handleRemovePost(post)}>
+            Delete this post
+          </button>
+          <button onClick={() => setIsEdit(true)}>Edit this post</button>
+        </div>
+      </div>
 
+      {isEdit ? (
+        <BlogPostEditInput
+          handleMessageChange={handleMessageChange}
+          handleEditPost={handleEditPost}
+          val={val}
+          post={post}
+        />
+      ) : null}
+      <Comments blogPostId={id} />
     </div>
   );
 }

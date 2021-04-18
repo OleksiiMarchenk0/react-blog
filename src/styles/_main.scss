@@ -5,9 +5,12 @@
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
-a, input[type="submit"]{
+a, input[type="submit"], button{
     text-decoration: none;
     cursor: pointer;
+}
+textarea,input{
+    outline: none;
 }
 .Layout{
     background: white;

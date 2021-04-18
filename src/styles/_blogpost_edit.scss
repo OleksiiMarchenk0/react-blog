@@ -1,0 +1,5 @@
+.EditPostContainer{
+    display: flex;
+    justify-content: center;
+}
+@include form-styles(".EditPost");

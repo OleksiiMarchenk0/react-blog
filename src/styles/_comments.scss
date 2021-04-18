@@ -1,0 +1,33 @@
+.Comments {
+  > * {
+    width: 70vw;
+  }
+  .header {
+    font-size: 2em;
+    color: $Wine;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    align-items: flex-end;
+    * {
+      margin: 5px;
+    }
+    textarea {
+      border: none;
+      width: 98%;
+      border-bottom: 1px solid $Wine;
+    }
+    input {
+      width: 50px;
+    }
+  }
+  &List{
+    .comment{
+      padding: 10px 0;
+      border-top: 1px solid $mint60;
+    }
+  }
+}

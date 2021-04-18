@@ -16,19 +16,21 @@ function Comments({ blogPostId }) {
     e.preventDefault();
     const commentValue = e.target.comment.value;
     if(commentValue !== "") {
-       dispatch(setComment(commentValue, blogPostId));
+      dispatch(setComment(commentValue, blogPostId));
       e.target.comment.value = "";
       dispatch(fetchComments(blogPostId));
     }
   };
   return (
-    <>
-      <h1>Comments</h1>
+    <div className="Comments">
+      <p className="header">Comments</p>
       <CommentInput handleComment={handleComment} />
-      {comments.map((comment) => {
-        return <Comment comment={comment} />;
-      })}
-    </>
+      <div className="CommentsList">
+        {comments.map((comment) => {
+          return <Comment comment={comment} />;
+        })}
+      </div>
+    </div>
   );
 }
 export default Comments;
