@@ -4,8 +4,8 @@ const ENDPOINT = "comments";
 const FETCH_COMMENTS_REQUESTED = `${ENDPOINT}/FETCH_COMMENTS_REQUESTED`;
 const FETCH_COMMENTS_SUCCEDED = `${ENDPOINT}/FETCH_COMMENTS_SUCCEDED`;
 const ADD_COMMENT = `${ENDPOINT}/ADD_COMMENT`;
+
 const INITIAL_STATE = {
-  comment: {},
   comments: [],
   isLoading: false,
   isError: false,
@@ -26,10 +26,11 @@ export const fetchComments = (blogPostId) => {
     dispatch(fetchSucceded(response, blogPostId));
   };
 };
-export const setComment = (comment) => {
+export const setComment = (comment, blogPostId) => {
   const data = {
-    text: comment,
-    commentId: Date.now(),
+    id: Date.now(),
+    commentText: comment,
+    blogPostId:parseInt(blogPostId)
   };
   return async function(dispatch) {
     const response = await api.post(ENDPOINT, data);

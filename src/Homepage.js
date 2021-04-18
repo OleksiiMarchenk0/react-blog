@@ -1,6 +1,6 @@
 import React from "react";
-import BlogpostsList from "./BlogpostList/containers/BlogpostsList";
-import BlogPostForm from "./blogpostInputForm/containers/BlogPostForm";
+import BlogpostsList from "./Blogposts/BlogpostList/containers/BlogpostsList";
+import BlogPostForm from "./Blogposts/blogpostInputForm/containers/BlogPostForm";
 
 const Homepage = () => {
   return (

@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "text": "newoksana",
+      "text": "ooo",
       "id": 1618736433558
     },
     {
@@ -28,6 +28,66 @@
       "commentId": 2,
       "commentText": "Loremipsum",
       "blogPostId": 1876543
+    },
+    {
+      "commentId": 4,
+      "commentText": "ggg",
+      "blogPostId": 1618750863752
+    },
+    {
+      "id": 2,
+      "commentText": "fghjhgfd",
+      "blogPostId": 98765
+    },
+    {
+      "id": 1618752508329,
+      "commentText": "dfghj",
+      "blogPostId": 1618750863752
+    },
+    {
+      "id": 1618752537929,
+      "commentText": "i am inteeresteed",
+      "blogPostId": 1618750863752
+    },
+    {
+      "id": 1618752557444,
+      "commentText": "bbb",
+      "blogPostId": "1618750863752"
+    },
+    {
+      "id": 1618752766245,
+      "commentText": "okatyt",
+      "blogPostId": 1618750863752
+    },
+    {
+      "id": 1618752795424,
+      "commentText": "fgh",
+      "blogPostId": 1618750863752
+    },
+    {
+      "id": 1618752798987,
+      "commentText": "dghj",
+      "blogPostId": 1618750863752
+    },
+    {
+      "id": 1618752832331,
+      "commentText": "new olaa comment",
+      "blogPostId": 1618750814972
+    },
+    {
+      "id": 1618753134039,
+      "commentText": "here ooo ",
+      "blogPostId": 1618736433558
+    },
+    {
+      "id": 1618753174045,
+      "commentText": "dfg",
+      "blogPostId": 1618736433558
+    },
+    {
+      "id": 1618753643615,
+      "commentText": "ghjk",
+      "blogPostId": 1618736433558
     }
   ]
 }

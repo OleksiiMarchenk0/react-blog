@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Comments from "../../Comments/container/Comments";
+import Comments from "../../../Comments/container/Comments";
 
 export default function PostPage({ post, id, handleRemovePost, handleEditPost }) {
   const { text } = post;

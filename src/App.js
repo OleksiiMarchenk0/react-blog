@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import rootReducer from "./rootReducer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Homepage from "./Homepage";
-import BlogpostPage from "./BlogPostPage/containers/BlogpostPage";
+import BlogpostPage from "./Blogposts/BlogPostPage/containers/BlogpostPage";
 import Layout from "./Layout";
 
  import "./App.css";
