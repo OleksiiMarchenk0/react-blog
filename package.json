@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"json-server -p 3001 --watch src/db.json\" \"react-scripts start --open\""
+    "dev": "concurrently \"json-server -p 3001 --watch src/db.json\" \"react-scripts start --open\"",
+    "watch-sass": "node-sass --watch ./src/styles -o ./src --output-style compressed"
   },
   "eslintConfig": {
     "extends": [

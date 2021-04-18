@@ -8,8 +8,7 @@ import Layout from "./Layout";
 import Navigation from "./Navigation";
 import BlogpostsList from "./Blogposts/BlogpostList/containers/BlogpostsList";
 import BlogPostForm from "./Blogposts/blogpostInputForm/containers/BlogPostForm";
-
- // import "./App.css";
+import "./App.css";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = [thunk];

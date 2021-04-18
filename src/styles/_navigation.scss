@@ -1,0 +1,23 @@
+.App_Navigation {
+  background: $mint20;
+  width: 100vw;
+  height: 12vh;
+  display: flex;
+  justify-content: flex-end;
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    a{
+        padding: 15px;
+        border-radius: $borderRadius;
+        background: $FleryRose;
+        color: white;
+        transition: $transition;
+        &:hover{
+          background: white;
+          color: $FleryRose;
+        }
+    }
+  }
+}

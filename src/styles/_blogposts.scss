@@ -1,0 +1,51 @@
+.BlogpostList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 40vw;
+  height: 40vh;
+}
+.newBlogPostForm {
+  width: 30vw;
+  height: 60vh;
+  background: $FleryRose;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  * {
+    margin: 5px 0;
+  }
+  textarea {
+    height: 10vh;
+    border-radius: $borderRadius;
+    padding: 5px;
+    width: 100%;
+    max-width: 100%;
+    outline: none;
+    color: $mint80;
+    font-size: 1em;
+    &::placeholder{
+      color: $mint80;
+    }
+  }
+  input[type="submit"] {
+    padding: 10px 55px;
+    border-radius: $borderRadius;
+    color:white;
+    background: transparent;
+    outline: none;
+    border: 1px solid white;
+    transition: $transition;
+    position: absolute;
+    bottom: 2vh;
+    &:hover{
+      background: white;
+      color: $FleryRose;
+    }
+  }
+}
