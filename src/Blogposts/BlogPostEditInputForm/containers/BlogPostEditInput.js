@@ -4,11 +4,10 @@ import { useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import BlogPostEditInputForm from "../components/BlogPostEditInputForm";
 export default function BlogPostEditInput() {
-  // const posts = useSelector((state) => state.posts.posts);
-  // const {postInformation, postTitle} = posts;
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
+
   const handleEditPost = (e) => {
     e.preventDefault();
     const postTitle = e.target.postTitleEdit.value;
@@ -27,7 +26,6 @@ export default function BlogPostEditInput() {
     }
   };
   const reduxEditPost = (postTitle, postInformation) => {
-    console.log(postTitle, postTitle);
     dispatch(editPost(id, postTitle, postInformation));
     history.push("/");
     dispatch(fetchPosts());
@@ -36,5 +34,6 @@ export default function BlogPostEditInput() {
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
-  return <BlogPostEditInputForm handleEditPost={handleEditPost} />;
+  
+  return <BlogPostEditInputForm handleEditPost={ handleEditPost } />;
 }

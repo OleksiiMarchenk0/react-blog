@@ -59,11 +59,11 @@ const redux = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         comments: [
-          ...state.comments,
           {
             text: action.payload.text,
             id: action.payload.id,
           },
+          ...state.comments,
         ],
       };
     default:

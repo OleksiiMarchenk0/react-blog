@@ -35,6 +35,8 @@
     }
   }
   &List {
+    display: flex;
+    flex-direction: column-reverse;
     .comment {
       padding: 10px 0;
       border-top: 1px solid $mint60;

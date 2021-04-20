@@ -5,7 +5,8 @@ import rootReducer from "./rootReducer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import BlogpostPage from "./Blogposts/BlogPostPage/containers/BlogpostPage";
 import Layout from "./Layout";
-import Navigation from "./Navigation";
+import Header from "./Header";
+import Page404 from "./Page404";
 import BlogpostsList from "./Blogposts/BlogpostList/containers/BlogpostsList";
 import BlogPostForm from "./Blogposts/blogpostInputForm/containers/BlogPostForm";
 import "./App.css";
@@ -22,11 +23,12 @@ function App() {
     <BrowserRouter>
       <Provider store={store}>
         <Layout>
-        <Navigation/>
+        <Header/>
           <Switch>
           <Route exact path={"/new"} component={BlogPostForm} />
             <Route exact path={["/posts", "/"]} component={BlogpostsList} />
             <Route exact path={"/post/:id"} component={BlogpostPage} />
+            <Route path="*" component={Page404} />
           </Switch>
         </Layout>
       </Provider>

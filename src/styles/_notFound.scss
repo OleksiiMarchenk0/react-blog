@@ -1,0 +1,16 @@
+.pageNotFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  div {
+    font-size: 2em;
+  }
+  a.home {
+    font-size: 1.3em;
+    color: $mint80;
+    transition: $transition;
+    &:hover{
+        color:$FleryRose;
+    }
+  }
+}
