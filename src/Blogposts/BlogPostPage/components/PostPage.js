@@ -1,22 +1,18 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Comments from "../../../Comments/container/Comments";
-import BlogPostEditInput from "../../BlogPostEditInputForm/BlogPostEditInput";
-export default function PostPage({
-  post,
-  id,
-  handleRemovePost,
-  handleEditPost,
-}) {
-  const { text } = post;
+import BlogPostEditInput from "../../BlogPostEditInputForm/containers/BlogPostEditInput";
+export default function PostPage({ id, handleRemovePost }) {
+  const post = useSelector((state) => state.posts.post);
+  const { postTitle, postInformation } = post;
   const [isEdit, setIsEdit] = useState(false);
-  const [val, newVal] = useState(text);
-  const handleMessageChange = (event) => {
-    newVal(event.target.value);
-  };
+
+
   return (
     <div className="PostPage">
       <div className="Post">
-        <p className="header">{text}</p>
+        <p className="header">{postTitle}</p>
+        <span> {postInformation} </span>
         <div className="PostPage__buttons">
           <button onClick={() => handleRemovePost(post)}>
             Delete this post
@@ -27,10 +23,6 @@ export default function PostPage({
 
       {isEdit ? (
         <BlogPostEditInput
-          handleMessageChange={handleMessageChange}
-          handleEditPost={handleEditPost}
-          val={val}
-          post={post}
         />
       ) : null}
       <Comments blogPostId={id} />

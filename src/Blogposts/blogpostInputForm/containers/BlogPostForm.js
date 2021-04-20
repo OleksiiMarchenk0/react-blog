@@ -7,10 +7,12 @@ function BlogPostFormContainer() {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const postValue = e.target.post.value;
-    if(postValue !== "") {
-      dispatch(setPost(postValue));
-      e.target.post.value = "";
+    const postTitle = e.target.postTitle.value;
+    const postInformation = e.target.postInformation.value;
+    if((postTitle !== "")&&(postInformation !== "")) {
+      dispatch(setPost(postTitle, postInformation));
+      e.target.postTitle.value = "";
+      e.target.postInformation.value = "";
     }
   };
   return <BlogPostForm handleSubmit={handleSubmit} />;

@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import BlogPostEditInput from "./BlogPostEditInput";
+import BlogPostEditInputForm from "./BlogPostEditInputForm";
 
 test("renders component", async() => {
-  const { getByText } = render(<BlogPostEditInput />);
+  const { getByText } = render(<BlogPostEditInputForm />);
   expect(getByText("Save changes")).toBeInTheDocument();
 });

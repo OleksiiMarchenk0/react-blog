@@ -9,22 +9,32 @@
     flex-direction: column;
     position: relative;
     padding: 15px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     * {
       margin: 5px 0;
     }
-    textarea {
-      height: 10vh;
+    h1{
+      color:white;
+    }
+    textarea, input {
       border-radius: $borderRadius;
       padding: 5px;
-      width: 100%;
-      max-width: 100%;
       color: $mint80;
       font-size: 1em;
       &::placeholder {
         color: $mint80;
       }
+    }
+    textarea{
+      height: 10vh;
+      width: 100%;
+      max-width: 100%;
+    }
+    input[type="text"]
+    {
+      width: 100%;
+      max-width: 100%;
     }
     input[type="submit"] {
       padding: 10px 55px;

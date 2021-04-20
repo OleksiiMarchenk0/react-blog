@@ -1,12 +1,9 @@
 {
   "posts": [
     {
-      "text": "Eurovision 2021",
+      "postTitle": "Eurovision 2021",
+      "postInformation": "The Eurovision Song Contest 2021 is set to be the 65th edition of the Eurovision Song Contest. The contest will be held in Rotterdam, the Netherlands, following the country's victory at the 2019 contest with the song \"Arcade\" by Duncan Laurence. The Netherlands was due to host the 2020 contest, before it was cancelled due to the COVID-19 pandemic. It will be the fifth time that the Netherlands hosts the contest, having previously done so in 1958, 1970, 1976 and 1980.",
       "id": 1618770542474
-    },
-    {
-      "text": "New ideas for improving your codings skills",
-      "id": 1618780013039
     }
   ],
   "comments": [
@@ -18,7 +15,12 @@
     {
       "id": 1618780031832,
       "commentText": "Okay, I agree",
-      "blogPostId": 1618780013039
+      "blogPostId": 1618770542474
+    },
+    {
+      "id": 1618946420898,
+      "commentText": "wow",
+      "blogPostId": 1618770542474
     }
   ]
 }

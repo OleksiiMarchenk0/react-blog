@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchPost, removePost, fetchPosts, editPost } from "../../redux";
+import { useDispatch } from "react-redux";
+import { fetchPost, removePost, fetchPosts } from "../../redux";
 import PostPage from "../components/PostPage";
 
 function BlogpostPage() {
   const history = useHistory();
   const { id } = useParams();
-  const post = useSelector((state) => state.posts.post);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,18 +19,11 @@ function BlogpostPage() {
     dispatch(fetchPosts());
   };
 
-  const handleEditPost = (post, newBlogPostTextValue) => {
-    dispatch(editPost(post.id, newBlogPostTextValue));
-    history.push("/");
-    dispatch(fetchPosts());
-  };
   return (
     <>
       <PostPage
       id={id}
-        post={post}
         handleRemovePost={handleRemovePost}
-        handleEditPost={handleEditPost}
       />
     </>
   );

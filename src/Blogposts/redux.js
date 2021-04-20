@@ -10,7 +10,7 @@ const DELETE_POST = `${ENDPOINT_CUT}/DELETE_POST`;
 const FETCH_POST_SUCCEDED = `${ENDPOINT_CUT}/FETCH_POST_SUCCEDED`;
 const EDIT_POST_SUCCEDED = `${ENDPOINT_CUT}/EDIT_POST_SUCCEDED`;
 const INITIAL_STATE = {
-  post:{},
+  post: {},
   posts: [],
   isLoading: false,
   isError: false,
@@ -39,9 +39,10 @@ export const fetchPosts = () => {
     dispatch(fetchSucceded(response));
   };
 };
-export const setPost = (postValue) => {
+export const setPost = (postTitle, postInformation) => {
   const data = {
-    text: postValue,
+    postTitle: postTitle,
+    postInformation: postInformation,
     id: Date.now(),
   };
   return async function(dispatch) {
@@ -61,9 +62,10 @@ export const fetchPost = (id) => {
     dispatch(fetchPostSucceded(response));
   };
 };
-export const editPost = (id, text) => {
+export const editPost = (id, postTitle, postInformation) => {
   const data = {
-    text
+    postTitle,
+    postInformation,
   };
   return async function(dispatch) {
     const response = await api.patch(ENDPOINT, data, id);
