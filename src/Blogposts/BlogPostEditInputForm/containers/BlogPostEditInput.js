@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import BlogPostEditInputForm from "../components/BlogPostEditInputForm";
 export default function BlogPostEditInput() {
+  // const posts = useSelector((state) => state.posts.posts);
+  // const {postInformation, postTitle} = posts;
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
@@ -11,9 +13,15 @@ export default function BlogPostEditInput() {
     e.preventDefault();
     const postTitle = e.target.postTitleEdit.value;
     const postInformation = e.target.postInformationEdit.value;
-    if(postTitle !== "" && postInformation !== "") {
-        console.log(postTitle, postInformation);
+
+    if(postTitle !== "" || postInformation !== "") {
+      if(postTitle !== "" && postInformation !== "") {
         reduxEditPost(postTitle, postInformation);
+      } else if(postTitle !== "") {
+        reduxEditPost(postTitle);
+      } else if(postInformation !== "") {
+        reduxEditPost(undefined, postInformation);
+      }
       e.target.postTitleEdit.value = "";
       e.target.postInformationEdit.value = "";
     }
