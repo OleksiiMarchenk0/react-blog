@@ -1,36 +1,16 @@
 {
   "posts": [
     {
-      "postTitle": "nowa nazwa",
-      "postInformation": "lorem ipsum",
-      "id": 1618953143057
+      "postTitle": "Eurowizja 2021",
+      "postInformation": "Ale ż będzie!",
+      "id": 1620765310022
     }
   ],
   "comments": [
     {
-      "id": 1618777083820,
-      "commentText": "It's amazing!",
-      "blogPostId": 1618770542474
-    },
-    {
-      "id": 1618780031832,
-      "commentText": "Okay, I agree",
-      "blogPostId": 1618770542474
-    },
-    {
-      "id": 1619625983455,
-      "commentText": "28042021",
-      "blogPostId": 1619625955921
-    },
-    {
-      "id": 1619625990883,
-      "commentText": "ffff",
-      "blogPostId": 1619625955921
-    },
-    {
-      "id": 1619626014201,
-      "commentText": "inny kommwnt",
-      "blogPostId": 1618953143057
+      "id": 1620765334240,
+      "commentText": "Nie mogę się doczekać!",
+      "blogPostId": 1620765310022
     }
   ]
 }

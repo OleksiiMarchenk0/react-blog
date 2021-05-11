@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchPosts } from "../../redux";
 import { useSelector, useDispatch } from "react-redux";
-import BlogpostTile from "../components/BlogpostTile";
-import { NavLink } from "react-router-dom";
+import Blogpost from "./Blogpost";
 
 function Blogposts() {
   const posts = useSelector((state) => state.posts.posts);
@@ -12,16 +11,9 @@ function Blogposts() {
   }, [dispatch]);
 
   const postsList = posts.map((post) => {
-    return (
-      <>
-        <li className="BlogpostList__item">
-          <NavLink to={`/post/${post.id}`} key={post.id}>
-            <BlogpostTile key={post.id} post={post} />{" "}
-          </NavLink>
-        </li>
-      </>
-    );
+    return <Blogpost post={post} key={post.id} />;
   });
+
   return (
     <div className="BlogpostListContainer">
       <p>Blogs List</p>
