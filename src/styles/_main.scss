@@ -9,6 +9,9 @@ input[type="submit"],
 button {
   text-decoration: none;
   cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
 }
 textarea,
 input {

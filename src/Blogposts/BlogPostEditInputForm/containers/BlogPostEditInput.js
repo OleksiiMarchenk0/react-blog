@@ -3,6 +3,7 @@ import { editPost, fetchPosts } from "../../redux";
 import { useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import BlogPostEditInputForm from "../components/BlogPostEditInputForm";
+
 export default function BlogPostEditInput() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -33,7 +34,11 @@ export default function BlogPostEditInput() {
 
   useEffect(() => {
     dispatch(fetchPosts());
-  }, []);
-  
-  return <BlogPostEditInputForm handleEditPost={ handleEditPost } />;
+  }, [dispatch]);
+  const handleBack = (e) => {
+    e.preventDefault();
+    history.goBack();
+  };
+
+  return <BlogPostEditInputForm handleBack={ handleBack } handleEditPost={ handleEditPost } />;
 }

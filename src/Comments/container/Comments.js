@@ -10,7 +10,7 @@ function Comments({ blogPostId }) {
 
   useEffect(() => {
     dispatch(fetchComments(blogPostId));
-  }, []);
+  }, [blogPostId, dispatch]);
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ function Comments({ blogPostId }) {
       <CommentInput handleComment={handleComment} />
       <div className="CommentsList">
         {comments.map((comment) => {
-          return <Comment comment={comment} />;
+          return <Comment key={comment.id} comment={comment} />;
         })}
       </div>
     </div>

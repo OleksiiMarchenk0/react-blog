@@ -1,6 +1,6 @@
-
 @mixin form-styles($form) {
-    #{$form} {
+  #{$form} {
+    position: relative;
     width: 30vw;
     height: 60vh;
     background: $FleryRose;
@@ -14,10 +14,27 @@
     * {
       margin: 5px 0;
     }
-    h1{
-      color:white;
+    .btn_back {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      svg {
+        width: 2em;
+        height: 2em;
+        color: white;
+      }
+      &:hover{
+        border: 1px solid white;
+      }
     }
-    textarea, input {
+    h1 {
+      color: white;
+    }
+    textarea,
+    input {
       border-radius: $borderRadius;
       padding: 5px;
       color: $mint80;
@@ -26,13 +43,12 @@
         color: $mint80;
       }
     }
-    textarea{
+    textarea {
       height: 10vh;
       width: 100%;
       max-width: 100%;
     }
-    input[type="text"]
-    {
+    input[type="text"] {
       width: 100%;
       max-width: 100%;
     }

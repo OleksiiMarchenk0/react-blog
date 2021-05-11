@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="Footer">
       <div>
         <span>By</span>&nbsp;
-        <a target="_blank" href="https://www.linkedin.com/in/marchenkoo/">
+        <a target="_blank" href="https://www.linkedin.com/in/marchenkoo/" rel="noreferrer">
           O.Marchenko
         </a>
       </div>

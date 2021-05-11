@@ -9,14 +9,14 @@ function Blogposts() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPosts());
-  }, []);
+  }, [dispatch]);
 
   const postsList = posts.map((post) => {
     return (
       <>
-        <li className="BlogpostList__item" key={post.id}>
-          <NavLink to={`/post/${post.id}`}>
-            <BlogpostTile post={post} />{" "}
+        <li className="BlogpostList__item">
+          <NavLink to={`/post/${post.id}`} key={post.id}>
+            <BlogpostTile key={post.id} post={post} />{" "}
           </NavLink>
         </li>
       </>

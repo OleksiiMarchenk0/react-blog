@@ -21,7 +21,6 @@ function get(endpoint, id = "") {
   return request(`${endpoint}/${id}`);
 }
 function post(endpoint, data) {
-  console.log(endpoint, data);
   return request(endpoint, "POST", data);
 }
 function patch(endpoint, data, id) {

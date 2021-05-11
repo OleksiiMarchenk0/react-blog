@@ -23,9 +23,9 @@ function App() {
     <BrowserRouter>
       <Provider store={store}>
         <Layout>
-        <Header/>
+          <Header />
           <Switch>
-          <Route exact path={"/new"} component={BlogPostForm} />
+            <Route exact path={"/new"} component={BlogPostForm} />
             <Route exact path={["/posts", "/"]} component={BlogpostsList} />
             <Route exact path={"/post/:id"} component={BlogpostPage} />
             <Route path="*" component={Page404} />

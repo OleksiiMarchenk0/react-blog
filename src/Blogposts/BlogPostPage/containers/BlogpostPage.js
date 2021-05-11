@@ -11,7 +11,7 @@ function BlogpostPage() {
 
   useEffect(() => {
     dispatch(fetchPost(id));
-  }, []);
+  }, [dispatch, id]);
 
   const handleRemovePost = (post) => {
     dispatch(removePost(post.id));
